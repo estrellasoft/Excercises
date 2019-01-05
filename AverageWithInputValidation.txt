@@ -64,10 +64,11 @@ public class AverageWithInputValidation {
 
         return num;
     }
-    public static int inputValication()
-    {
-        return 1;
-    }
+    //unused code
+//    public static int inputValidation()
+//    {
+//        return 1;
+//    }
 }
 
 
