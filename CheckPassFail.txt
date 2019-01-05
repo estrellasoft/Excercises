@@ -1,0 +1,34 @@
+package com.javaexcercises;
+
+/*
+Write a program called CheckPassFail which prints "PASS" if the int variable "mark" is more than or equal to 50; or prints "FAIL" otherwise. The program shall always print “DONE” before exiting.
+*/
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+/**
+ * Created by swindelm on 12/23/2018.
+ */
+public class CheckPassFail {
+    public static void main(String[] args) {
+        try
+        {
+            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+            System.out.println("Enter a number");
+            String input = reader.readLine();
+            int mark=Integer.parseInt(input);
+
+            if (mark >= 50)
+            {System.out.println("PASS");}
+            else if (mark < 50)
+            {System.out.println("FAIL");}
+            //System.out.println(str1);
+        }
+
+        catch(java.io.IOException ie) {
+            ie.printStackTrace();
+        }
+        System.out.println("DONE");
+    }
+}

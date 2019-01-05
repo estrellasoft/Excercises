@@ -1,0 +1,42 @@
+package com.javaexcercises;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+/*Write a program that prompts user for a positive integer. The program shall read the input as int; and print the "reverse" of the input integer. For examples,
+        (Loop with Modulus/Divide)
+        Enter a positive integer: 12345
+        The reverse is: 54321*/
+
+
+public class ReverseInt {
+
+
+
+    public static void main(String[] args) {
+
+        long num = 0;
+        long rev = 0;
+        try {
+            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+            System.out.println("Enter a positive integer: ");
+            String input = reader.readLine();
+            num = Integer.parseInt(input);
+
+        }
+        catch(java.io.IOException ie) {
+            ie.printStackTrace();
+        }
+
+
+        //int rev = 0;
+        while(num != 0){
+            rev = rev*10 + num%10;
+            num = num/10;
+        }
+        //System.out.println(Integer.parseInt(new StringBuffer(String.valueOf(input) ).reverse().toString()));
+        System.out.println("The reverse is: " + rev);
+
+    }
+
+}

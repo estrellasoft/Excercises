@@ -1,0 +1,68 @@
+package com.javaexcercises;
+
+
+
+/*The progressive income tax rate is mandated as follows:
+        Taxable Income 	Rate (%)
+        First   $20,000 	0
+        Next    $20,000 	10
+        Next    $20,000 	20
+        The remaining 	    30
+
+        For example, suppose that the taxable income is $85000, the income tax payable is $20000*0% + $20000*10% + $20000*20% + $25000*30%.
+
+        Write a program called IncomeTaxCalculator that reads the taxable income (in int). The program shall calculate the income tax payable (in double); and print the result rounded to 2 decimal places. For examples,
+
+        Enter the taxable income: $41234
+        The income tax payable is: $2246.80
+
+        Enter the taxable income: $67891
+        The income tax payable is: $8367.30
+
+        Enter the taxable income: $85432
+        The income tax payable is: $13629.60
+
+        Enter the taxable income: $12345
+        The income tax payable is: $0.00*/
+
+
+public class IncomeTaxCalculator {
+    public static void main(String[] args) {
+        double taxableincome = 85432;
+        double taxPayable = 0.00;
+        double taxPayable10 = 0.00;
+        double taxPayable20 = 0.00;
+        double taxPayable30 = 0.00;
+        double totaltaxes = 0;
+        java.text.DecimalFormat df2 = new java.text.DecimalFormat("###.##");
+        // for 10% bracket
+        if (taxableincome >= 40000) {         // [0, 20000]
+            taxPayable10 = 2000;
+        }
+        else if (taxableincome > 21000 && taxableincome < 40000) {  // [20001, 40000]
+            taxPayable10 = ((taxableincome - 20000) *.1);
+        }
+        totaltaxes = totaltaxes + taxPayable10;
+        System.out.println("Paid = " + df2.format(taxPayable10) + " on 10%");
+
+
+        if (taxableincome >= 60000) {  // [20001, 40000]
+            taxPayable20 = 4000;
+        }
+        else if (taxableincome > 41000 && taxableincome < 60000) {  // [20001, 40000]
+            taxPayable20 = ((taxableincome - 40000) *.2);
+        }
+        totaltaxes = totaltaxes + taxPayable20;
+        System.out.println("Paid = " + df2.format(taxPayable20) + " on 20%");
+
+
+         if (taxableincome > 61000) {  // [40001, 60000]
+            taxPayable30 = ((taxableincome - 60000) *.3);
+        }
+        totaltaxes = totaltaxes + taxPayable30;
+        System.out.println("Paid = " + df2.format(taxPayable30) + " on 30%");
+
+        System.out.println("Total Tax Paid = " + df2.format(totaltaxes));
+
+    }
+}

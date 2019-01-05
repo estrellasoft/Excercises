@@ -1,0 +1,74 @@
+package com.javaexcercises;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+/*Your program often needs to validate the user's inputs, e.g., marks shall be between 0 and 100.
+        (Loop with boolean flag)
+        Write a program that prompts user for an integer between 0-10 or 90-100. The program shall read the input as int; and repeat until the user enters a valid input. For examples,
+
+        Enter a number between 0-10 or 90-100: -1
+        Invalid input, try again...
+        Enter a number between 0-10 or 90-100: 50
+        Invalid input, try again...
+        Enter a number between 0-10 or 90-100: 101
+        Invalid input, try again...
+        Enter a number between 0-10 or 90-100: 95
+        You have entered: 95*/
+
+public class AverageWithInputValidation {
+
+
+    public static void main(String[] args) {
+
+        int score = 0;
+        int average = 0;
+        int sum = 0;
+
+    String[] students = {"student 1","student 2","student 3"};
+    for(int i = 0; i < students.length; i++)
+        {
+
+            String student = students[i];
+            score = getScores(student);
+
+            sum = sum + score;
+        }
+    average = sum/students.length;
+        System.out.println("The average is: "+ average);
+    }
+
+    public static int getScores(String student) {
+        boolean success = false;
+        int num = 0;
+        do{
+
+       try {
+           BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+           System.out.println("Enter the mark (0-100) for " + student);
+           String input = reader.readLine();
+           num = Integer.parseInt(input);
+           if(num >= 0 && num <= 100)
+           {success = true;}
+           else if (num < 0 || num > 100)
+           {System.out.println("Invalid input, try again...");}
+
+       }
+
+            catch (java.io.IOException ie) {
+                ie.printStackTrace();
+            }
+
+        }while (success == false);
+
+
+        return num;
+    }
+    public static int inputValication()
+    {
+        return 1;
+    }
+}
+
+
+
